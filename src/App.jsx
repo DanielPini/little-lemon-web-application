@@ -1,18 +1,22 @@
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+
 function App() {
   return (
     <>
-      <header>
-        <div className="logo">This is a logo</div>
-        <nav>
-          <ul>
-            <li>Menu</li>
-            <li>About</li>
-            <li>Cart</li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
-        <h1>Hello World</h1>
+        <div className="blurb">
+          <h1>Little Lemon</h1>
+          <h2>Chicago</h2>
+          <p>
+            We are a famil;y owned Mediterranian restaurant, focused on
+            traditional recipes served with a modern twist.
+          </p>
+          <button>Reserve a table</button>
+          <img src="" alt="" />
+        </div>
+        <h1>This Week's Specials</h1>
         <ul>
           <li className="food-option">Food option</li>
           <li className="food-option">Food option</li>
@@ -22,7 +26,7 @@ function App() {
           <li className="food-option">Food option</li>
         </ul>
       </main>
-      <footer>This is a footer</footer>
+      <Footer />
     </>
   );
 }

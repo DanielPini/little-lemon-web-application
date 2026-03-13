@@ -1,3 +1,15 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+header {
+  width: 100%;
+}
+.logo {
+  height: 100%;
+}
 header,
 nav ul {
   display: flex;
@@ -5,5 +17,13 @@ nav ul {
   justify-content: space-between;
   gap: 10px;
   list-style: none;
-  border: 1px solid black;
+  padding-right: 5vw;
+}
+nav ul {
+  width: 75vw;
+}
+.blurb {
+  width: 100%;
+  height: 300px;
+  background-color: rgb(28, 94, 75);
 }
