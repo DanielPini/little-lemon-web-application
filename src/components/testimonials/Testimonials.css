@@ -1,0 +1,11 @@
+section.testimonial-section {
+  background: #6b6b6b;
+  padding: 32px;
+}
+div.testimonial-content-wrapper {
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+}
+.testimonial-content-wrapper h1 {
+  color: white;
+}

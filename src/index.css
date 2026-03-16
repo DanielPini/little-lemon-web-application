@@ -1,29 +1,41 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Markazi+Text:wght@400..700&display=swap");
+:root {
+  --primary1: #495e57;
+  --primary2: #f4ce14;
+  --secondary1: #ee9972;
+  --secondary2: #fbdabb;
+  --highlight1: #edefee;
+  --highlight2: #333;
+
+  --DisplayTitle: 64pt "Markazi Text", sans-serif;
+  --Subtitle: 40pt "Markazi Text", sans-serif;
+  --LeadText: 18pt "Karla", sans-serif;
+  --SectionTitle: bold 20pt "Karla", sans-serif;
+  --CardTitle: bold 18pt "Karla", sans-serif;
+  --ParagraphText: 16pt/1.5 "Karla", sans-serif;
+  --HighlightText: 16pt "Karla", sans-serif;
+  --ButtonText: bold 24pt "Karla", sans-serif;
+
+  --DefaultWidth: clamp(700px, 1000px, 1200px);
+}
+html * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-header {
-  width: 100%;
+h1 {
+  color: var(--primary2);
+  font: var(--DisplayTitle);
 }
-.logo {
-  height: 100%;
+h1.section-title {
+  color: var(--highlight2);
 }
-header,
-nav ul {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  gap: 10px;
-  list-style: none;
-  padding-right: 5vw;
+h2 {
+  font: var(--Subtitle);
 }
-nav ul {
-  width: 75vw;
+p {
+  font: var(--ParagraphText);
 }
-.blurb {
-  width: 100%;
-  height: 300px;
-  background-color: rgb(28, 94, 75);
+button {
+  font: var(--ButtonText);
 }

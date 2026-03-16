@@ -1,0 +1,63 @@
+section.about-section,
+section.history {
+  width: 100vw;
+  height: 464px;
+  padding: 32px 0;
+}
+div.about-content-wrapper,
+div.content-wrapper {
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+div.about-text {
+  width: 450px;
+  h1,
+  .subtitle,
+  p {
+    color: black;
+  }
+}
+div.about-images {
+  position: relative;
+  width: calc(100% - 450px);
+}
+.image {
+  position: absolute;
+  width: 250px;
+  border-radius: 16px;
+  height: 300px;
+}
+.restaurant-image {
+  right: 200px;
+  top: 100px;
+  background: center / cover no-repeat url("/src/assets/restaurant.jpg");
+}
+.chef-image {
+  right: 0;
+  background: center / cover no-repeat url("/src/assets/restaurant_chef.jpg");
+}
+section.history {
+  background: var(--highlight2);
+}
+div.content-wrapper {
+  display: flex;
+  flex-flow: column;
+  display: block;
+}
+.content-wrapper h1,
+.content-wrapper p {
+  color: white;
+}
+.content-wrapper p,
+.content-wrapper p {
+  padding-bottom: 30px;
+}
+section.future {
+  background: var(--);
+}
+section.future div.content-wrapper h1,
+section.future div.content-wrapper p {
+  color: black;
+}

@@ -1,0 +1,5 @@
+.specials-content-wrapper {
+  width: var(--DefaultWidth);
+  margin: 32px auto;
+  overflow: visible;
+}

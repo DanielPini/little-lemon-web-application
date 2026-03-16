@@ -1,0 +1,31 @@
+header.header {
+  width: 100vw;
+  min-width: var(--DefaultWidth);
+  margin: 0 auto;
+  background-color: var(--highlight1);
+  display: flex;
+}
+div.header-wrapper {
+  width: var(--DefaultWidth);
+  min-width: var(--DefaultWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  height: 100%;
+}
+nav {
+  width: 700px;
+}
+nav ul {
+  font: var(--LeadText);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 10px;
+  list-style: none;
+  padding-right: 5vw;
+}

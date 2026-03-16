@@ -1,0 +1,13 @@
+section.menu {
+  width: 100%;
+}
+div.grid-container {
+  width: var(--DefaultWidth);
+  padding: 32px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  height: auto;
+  gap: 16px;
+  justify-content: space-between;
+}

@@ -1,0 +1,32 @@
+footer.footer {
+  height: 300px;
+  background-color: var(--highlight1);
+  padding: 32px 0;
+}
+.lemon-logo {
+  background: left / cover url("/src/assets/Logo.svg");
+  width: 190px;
+  height: 230px;
+}
+.footer-contents-wrapper {
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.footer-contents-wrapper div * {
+  display: block;
+  text-decoration: none;
+  font: var(--ParagraphText);
+  color: black;
+}
+.footer-contents-wrapper div h4 {
+  margin-bottom: 16px;
+}
+.footer-links {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: auto;
+}

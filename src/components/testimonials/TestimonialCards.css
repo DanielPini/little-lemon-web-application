@@ -1,0 +1,34 @@
+.cards-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+}
+.testimonial-card {
+  background-color: var(--highlight1);
+  padding: 32px;
+  border-radius: 16px;
+}
+.user-name {
+  font: var(--CardTitle);
+  color: black;
+}
+.user-image {
+  width: 80px;
+  height: 80px;
+}
+.middle-group {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.testimonial-text {
+  font: var(--HightlightText);
+  font-style: italic;
+  width: 150px;
+  padding: 16px;
+  padding-top: 0;
+  text-align: center;
+  color: black;
+}
+.star-rating {
+  color: black;
+}

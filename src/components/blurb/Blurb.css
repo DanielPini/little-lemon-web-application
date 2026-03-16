@@ -1,0 +1,33 @@
+.blurb {
+  width: 100%;
+  background-color: rgb(28, 94, 75);
+  padding: 16px;
+}
+.blurb-content-wrapper {
+  position: relative;
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+}
+h2.subtitle {
+  margin-top: -30px;
+}
+h2,
+p {
+  color: white;
+}
+.description {
+  width: 275px;
+  padding-bottom: 20px;
+}
+button.button {
+  margin-bottom: 16px;
+}
+div.blurb-image {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: center / cover url("src/assets/restaurant_food.jpg");
+  width: 390px;
+  height: 450px;
+  border-radius: 16px;
+}

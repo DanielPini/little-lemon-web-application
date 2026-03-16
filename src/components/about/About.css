@@ -1,0 +1,38 @@
+section.about-section {
+  width: 100vw;
+  height: 464px;
+  padding: 32px 0;
+}
+div.about-content-wrapper {
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+div.about-text {
+  width: 450px;
+  h1,
+  .subtitle,
+  p {
+    color: black;
+  }
+}
+div.about-images {
+  position: relative;
+  width: calc(100% - 450px);
+}
+.image {
+  position: absolute;
+  width: 250px;
+  border-radius: 16px;
+  height: 300px;
+}
+.restaurant-image {
+  right: 200px;
+  top: 100px;
+  background: center / cover no-repeat url("/src/assets/restaurant.jpg");
+}
+.chef-image {
+  right: 0;
+  background: center / cover no-repeat url("/src/assets/restaurant_chef.jpg");
+}

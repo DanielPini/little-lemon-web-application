@@ -1,29 +1,50 @@
+import "./Header.css";
+import Logo from "/src/assets/Logo.svg";
+import { NavLink } from "react-router-dom";
+
 function Header() {
+  const navLinkStyles = ({ isActive }) => ({
+    color: isActive ? "#007bff" : "#333",
+    textDecoration: isActive ? "underline" : "none",
+    fontWeight: isActive ? "bold" : "normal",
+  });
+
   return (
-    <header>
-      <img src="/src/assets/Logo.svg" alt="Little Lemon Logo" />
-      <nav>
-        <ul>
-          <li>
-            <a href="">Home</a>
-          </li>
-          <li>
-            <a href="">About</a>
-          </li>
-          <li>
-            <a href="">Menu</a>
-          </li>
-          <li>
-            <a href="">Reservations</a>
-          </li>
-          <li>
-            <a href="">Order Online</a>
-          </li>
-          <li>
-            <a href="">Cart</a>
-          </li>
-        </ul>
-      </nav>
+    <header className="header">
+      <div className="header-wrapper">
+        <img src={Logo} alt="Little Lemon Logo" />
+        <nav>
+          <ul>
+            <li>
+              <NavLink style={navLinkStyles} to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyles} to="/about">
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyles} to="/menu">
+                Menu
+              </NavLink>
+            </li>
+            {/* <li>
+              <NavLink style={navLinkStyles} to="/reservations">Reservations</NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyles} to="/order">Order Online</NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyles} to="/login">Log In</NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyles} to="/cart">Cart</NavLink>
+            </li> */}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }

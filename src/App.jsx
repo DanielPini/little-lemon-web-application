@@ -1,33 +1,29 @@
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Home from "./components/home/Home";
+import AboutPage from "./components/aboutPage/AboutPage";
+import Menu from "./components/menu/Menu";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <div className="blurb">
-          <h1>Little Lemon</h1>
-          <h2>Chicago</h2>
-          <p>
-            We are a famil;y owned Mediterranian restaurant, focused on
-            traditional recipes served with a modern twist.
-          </p>
-          <button>Reserve a table</button>
-          <img src="" alt="" />
-        </div>
-        <h1>This Week's Specials</h1>
-        <ul>
-          <li className="food-option">Food option</li>
-          <li className="food-option">Food option</li>
-          <li className="food-option">Food option</li>
-          <li className="food-option">Food option</li>
-          <li className="food-option">Food option</li>
-          <li className="food-option">Food option</li>
-        </ul>
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/menu" element={<Menu />} />
+          {/* <Route path="/reservations" element={<Reservations />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} /> */}
+        </Routes>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
