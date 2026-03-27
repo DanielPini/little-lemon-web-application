@@ -1,50 +1,8 @@
-.specials-card {
-  display: grid;
-  grid-template-rows: 200px 24px 1fr 14px;
-  width: 285px;
-  height: 450px;
-  background: var(--highlight1);
-}
-h3.specials-item {
-  color: black;
-  font: var(--CardTitle);
-}
-p.item-price {
-  color: red;
-}
-p.item-description {
-  color: black;
-  font: var(--ParagraphText);
-  padding-top: 16px;
-}
-img {
-  width: 280px;
-  height: 200px;
-}
-div.name-price {
-  margin-top: 8px;
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
 div.specials-list {
   width: var(--DefaultWidth);
   display: flex;
   flex-flow: row nowrap;
   gap: 10px;
   overflow-x: scroll;
-}
-.order-link-wrapper {
-  height: 100%;
-  display: flex;
-  flex-flow: row;
-  align-items: end;
-}
-a.order-link {
-  padding-top: auto;
-  color: black;
-  text-decoration: none;
-  font: var(--HighlightText);
-  font-style: italic;
+  padding: 16px;
 }

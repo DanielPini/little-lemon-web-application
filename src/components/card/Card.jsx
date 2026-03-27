@@ -1,4 +1,5 @@
 import "../specialsList/SpecialsList.css";
+import "./Card.css";
 
 function Card({ props }) {
   const { image, name, priceCents, description, link } = props;

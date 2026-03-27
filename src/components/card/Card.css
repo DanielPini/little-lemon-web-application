@@ -1,0 +1,48 @@
+.specials-card {
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-rows: 200px 24px 1fr 24px;
+  width: 285px;
+  height: 450px;
+  background: var(--highlight1);
+}
+
+h3.specials-item {
+  color: black;
+  font: var(--CardTitle);
+}
+p.item-price {
+  color: red;
+}
+p.item-description {
+  color: black;
+  font: var(--ParagraphText);
+  padding-top: 16px;
+}
+.specials-card img {
+  aspect-ratio: 1.5;
+  width: 250px;
+  height: unset;
+}
+.order-link-wrapper {
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: end;
+}
+a.order-link {
+  padding-top: auto;
+  color: black;
+  text-decoration: none;
+  font: var(--HighlightText);
+  font-style: italic;
+}
+div.name-price {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
