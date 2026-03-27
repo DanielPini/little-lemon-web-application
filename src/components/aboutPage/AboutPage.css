@@ -1,8 +1,7 @@
-section.about-section,
 section.history {
   width: 100vw;
   height: 464px;
-  padding: 32px 0;
+  padding: 16px;
 }
 div.about-content-wrapper,
 div.content-wrapper {

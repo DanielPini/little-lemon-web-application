@@ -37,7 +37,7 @@ function Specials() {
   return (
     <div className="specials-content-wrapper">
       <h1 className="section-title">This week's specials!</h1>
-      <SpecialsList items={foodOptions} />
+      <SpecialsList className="specials-list" items={foodOptions} />
     </div>
   );
 }

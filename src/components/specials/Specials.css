@@ -3,3 +3,14 @@
   margin: 32px auto;
   overflow: visible;
 }
+
+@media only screen and (max-width: 700px) {
+  .specials-content-wrapper {
+    max-width: 100vw;
+    padding: 16px;
+    margin: 0;
+  }
+  .specials-content-wrapper div.specials-list {
+    width: calc(100vw - 32px);
+  }
+}

@@ -31,3 +31,8 @@ div.blurb-image {
   height: 450px;
   border-radius: 16px;
 }
+@media only screen and (max-width: 700px) {
+  .blurb-image {
+    display: none;
+  }
+}
