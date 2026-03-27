@@ -29,3 +29,49 @@ nav ul {
   list-style: none;
   padding-right: 5vw;
 }
+div.burger-button {
+  display: none;
+  width: 45px;
+  height: 100px;
+  padding-right: 20px;
+}
+div.burger-button img {
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+  .logo-wrapper {
+    width: 60px;
+    overflow-x: clip;
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+  }
+  nav div.burger-button {
+    display: block;
+    margin-left: auto;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul.isOpen {
+    position: absolute;
+    padding-bottom: 50px !important;
+    background: var(--highlight1);
+    z-index: 2;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    height: unset;
+    flex-flow: column nowrap;
+    width: 100vw;
+  }
+  nav ul li {
+    text-align: center;
+    line-height: 2;
+  }
+}

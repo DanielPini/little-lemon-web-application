@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./Header.css";
 import Logo from "/src/assets/Logo.svg";
+import Burger from "/src/assets/hamburger-menu.svg";
 import { NavLink } from "react-router-dom";
 
 function Header() {
@@ -9,12 +11,24 @@ function Header() {
     fontWeight: isActive ? "bold" : "normal",
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    console.log("clicked");
+  };
+
   return (
     <header className="header">
       <div className="header-wrapper">
-        <img src={Logo} alt="Little Lemon Logo" />
+        <div className="logo-wrapper">
+          <img src={Logo} alt="Little Lemon Logo" className="logo" />
+        </div>
         <nav>
-          <ul>
+          <div className="burger-button" onClick={handleClick} role="button">
+            <img src={Burger} alt="" />
+          </div>
+          <ul className={isOpen ? "isOpen" : ""}>
             <li>
               <NavLink style={navLinkStyles} to="/">
                 Home

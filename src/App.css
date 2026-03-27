@@ -2,4 +2,8 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: 100px 1fr 350px;
+  background: var(--highlight1);
+}
+
+@media only screen and (max-width: 700px) {
 }
