@@ -10,6 +10,9 @@
     padding: 16px;
     margin: 0;
   }
+  .section-title {
+    font-size: 56px;
+  }
   .specials-content-wrapper div.specials-list {
     width: calc(100vw - 32px);
   }

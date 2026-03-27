@@ -1,7 +1,6 @@
 section.history {
-  width: 100vw;
-  height: 464px;
   padding: 16px;
+  background: var(--highlight2);
 }
 div.about-content-wrapper,
 div.content-wrapper {
@@ -37,9 +36,6 @@ div.about-images {
   right: 0;
   background: center / cover no-repeat url("/src/assets/restaurant_chef.jpg");
 }
-section.history {
-  background: var(--highlight2);
-}
 div.content-wrapper {
   display: flex;
   flex-flow: column;
@@ -54,9 +50,21 @@ div.content-wrapper {
   padding-bottom: 30px;
 }
 section.future {
-  background: var(--);
+  background: var(--highlight1);
 }
 section.future div.content-wrapper h1,
 section.future div.content-wrapper p {
   color: black;
+}
+
+@media only screen and (max-width: 700px) {
+  div.content-wrapper {
+    width: calc(100vw - 32px);
+    margin: 0;
+  }
+  section.future,
+  section.history {
+    padding: 16px;
+    padding-bottom: 32px;
+  }
 }
