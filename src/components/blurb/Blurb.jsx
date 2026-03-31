@@ -1,5 +1,6 @@
 import Button from "../button/Button";
 import "./Blurb.css";
+import { Link } from "react-router-dom";
 
 function Blurb() {
   return (
@@ -11,7 +12,9 @@ function Blurb() {
           We are a family-owned Mediterranian restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
-        <Button text="Reserve a table" color="black" bg="yellow" />
+        <Link to="/reservations">
+          <Button text="Reserve a table" color="black" bg="#f4ce14" />
+        </Link>
         <div className="blurb-image"></div>
       </div>
     </section>

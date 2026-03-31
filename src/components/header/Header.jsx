@@ -44,6 +44,11 @@ function Header() {
                 Menu
               </NavLink>
             </li>
+            <li>
+              <NavLink style={navLinkStyles} to="/reservations">
+                Reservations
+              </NavLink>
+            </li>
             {/* <li>
               <NavLink style={navLinkStyles} to="/reservations">Reservations</NavLink>
             </li>

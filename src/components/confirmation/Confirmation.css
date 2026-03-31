@@ -1,4 +1,4 @@
-section.booking-form {
+section.confirmation-form {
   width: var(--DefaultWidth);
   display: flex;
   flex-flow: column;
@@ -6,55 +6,17 @@ section.booking-form {
   font: var(--ParagraphText);
 }
 
-section.booking-form legend {
+section.confirmation-form legend {
   font-weight: bold;
 }
 
-section.booking-form label {
+section.confirmation-form label {
   padding: 16px;
   display: inline-block;
 }
 
-.switch {
-  position: relative;
-}
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.slider {
-  position: absolute;
-  top: 20px;
-  width: 44px;
-  height: 24px;
-  border-radius: 24px;
-  background: green;
-  transition: 0.2s;
-}
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.2s;
-}
-input:checked + .slider {
-  background: #2196f3;
-}
-input:checked + .slider:before {
-  transform: translateX(20px);
-}
-.location-label {
-  padding-left: 48px;
-}
-
-section.booking-form input,
-section.booking-form select {
+section.confirmation-form input,
+section.confirmation-form select {
   display: block;
   box-sizing: border-box;
   padding: 8px;
@@ -99,15 +61,62 @@ div.error {
   font-size: 12pt;
   color: red;
 }
-.title-label {
-  grid-column: 1 / span 2;
-}
 
 textarea {
   width: 100%;
   height: 180px;
   resize: none;
   padding: 16px;
+}
+
+.expiry {
+  display: flex;
+  flex-flow: row;
+}
+.expiry input[type="text"] {
+  width: 50px;
+  border-radius: 16px 0px 0px 16px;
+  border-right: 1px solid black;
+}
+.expiry input[type="text"]:nth-of-type(2) {
+  border-radius: 0 16px 16px 0;
+  border-right: none;
+  border-left: 1px solid black;
+  position: relative;
+  left: 50px;
+  top: -32px;
+}
+.expiry .error {
+  position: relative;
+  top: -32px;
+}
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+}
+.modal {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  padding: 50px;
+  translate: -50% -50%;
+  width: 500px;
+  height: 500px;
+  border: 2px solid var(--primary2);
+  background: var(--primary1);
+}
+.modal p,
+.modal h1 {
+  text-align: center;
 }
 
 @media only screen and (max-width: 700px) {
@@ -120,6 +129,9 @@ textarea {
     width: calc(100vw - 32px);
   }
   fieldset {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  fieldset.booking-details {
     grid-template-columns: repeat(1, 1fr);
   }
 }
