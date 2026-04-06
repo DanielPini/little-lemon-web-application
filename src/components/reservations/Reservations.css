@@ -103,6 +103,10 @@ div.error {
   grid-column: 1 / span 2;
 }
 
+.date-paragraph-text {
+  color: var(--highlight2);
+}
+
 textarea {
   width: 100%;
   height: 180px;

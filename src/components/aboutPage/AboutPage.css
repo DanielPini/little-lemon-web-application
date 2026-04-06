@@ -2,6 +2,11 @@ section.history {
   padding: 16px;
   background: var(--highlight2);
 }
+main .about-title {
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+  color: var(--primary1);
+}
 div.about-content-wrapper,
 div.content-wrapper {
   width: var(--DefaultWidth);
@@ -61,6 +66,10 @@ section.future div.content-wrapper p {
   div.content-wrapper {
     width: calc(100vw - 32px);
     margin: 0;
+  }
+  main .about-title {
+    width: calc(100vw - 32px);
+    margin: 0 32px;
   }
   section.future,
   section.history {

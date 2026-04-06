@@ -7,29 +7,30 @@ import Reservations from "./components/reservations/Reservations";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Confirmation from "./components/confirmation/confirmation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { fetchTimes, submitBooking } from "./api";
 import * as Yup from "yup";
-
-const DINING_DURATION = 120; // minutes
-
-const OPENING_HOURS = {
-  0: { open: 16, close: 20 }, // Sunday
-  1: null, // Monday
-  2: { open: 18, close: 22 }, // Tuesday
-  3: { open: 16, close: 22 }, // Wednesday
-  4: { open: 16, close: 22 }, // Thursday
-  5: { open: 16, close: 22 }, // Friday
-  6: { open: 16, close: 22 }, // Saturday
-};
 
 function App() {
   const navigate = useNavigate();
 
   const [times, setTimes] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const handleDateChange = async (e) => {
+    formik.handleChange(e);
+
+    const newDate = e.target.value;
+
+    if (!newDate) return;
+
+    setLoading(true);
+    const result = await fetchTimes(newDate);
+    setTimes(result);
+    setLoading(false);
+  };
 
   const today = new Date().toISOString().split("T")[0];
   const formik = useFormik({
@@ -86,43 +87,6 @@ function App() {
     },
   });
 
-  useEffect(() => {
-    if (!formik.values.date) return;
-    console.log(formik.values.date);
-
-    let ignore = false;
-
-    async function loadTimes() {
-      setLoading(true);
-
-      const result = await fetchTimes(formik.values.date);
-
-      if (!ignore) {
-        setTimes(result);
-        setLoading(false);
-      }
-    }
-
-    loadTimes();
-
-    return () => {
-      ignore = true;
-    };
-  }, [formik.values.date]);
-
-  const handleDateChange = (e) => {
-    const value = e.target.value;
-    const day = new Date(value).getDay();
-
-    if (OPENING_HOURS[day] === null) {
-      formik.setFieldTouched("date", true);
-      formik.setFieldError("date", "Restaurant is closed on Mondays");
-      formik.setFieldValue("date", "");
-      return;
-    }
-
-    formik.handleChange(e);
-  };
   return (
     <div className="App">
       <Header />
@@ -143,9 +107,9 @@ function App() {
               handleSubmit={formik.handleSubmit}
               today={today}
               formik={formik}
-              handleDateChange={handleDateChange}
               times={times}
               loading={loading}
+              handleDateChange={handleDateChange}
             />
           }
         />

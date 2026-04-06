@@ -1,16 +1,26 @@
-# React + Vite
+# Little Lemon Restaurant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This website shows the implementation of a react app using vite, formik, and yup for setup, field control, and form validation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The booking handles the name, number of guests, finds times through an api, then allows the guest to book a table by taking a deposit amount from an entered card.
 
-## React Compiler
+All the form have error messages and handling to ensure that the guest sees any mistakes and can correct them as needed.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+UX has been taken into account and colours and messages have been thoughtfully used to show the correct path to booking, as well as easy navigation.
 
-## Expanding the ESLint configuration
+Form contents is saved while navigating away from the form, and will only clear when the form has been submitted, or with manual deletion from the user.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Unit testing
+
+There are unit tests for the:
+
+- Booking page
+- API interaction
+
+## Accessibility
+
+Semantic HTML has been used throught the react app and where necessary, aria tags have also been included.
+
+The brand colours have a contrast of above 4.5 : 1 and as such qualify under the WCAG guidelines for accessibility.

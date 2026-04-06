@@ -3,6 +3,7 @@ import "./AboutPage.css";
 function AboutPage() {
   return (
     <main>
+      <h1 className="about-title">About Little Lemon</h1>
       <section className="about-section">
         <div className="about-content-wrapper">
           <div className="about-text">

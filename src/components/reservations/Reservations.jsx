@@ -10,9 +10,9 @@ function Reservations({
   setFieldValue,
   getFieldProps,
   handleSubmit,
-  handleDateChange,
   times,
   loading,
+  handleDateChange,
 }) {
   const safeTimes = Array.isArray(times) ? times : [];
   return (
@@ -130,7 +130,6 @@ function Reservations({
                 name="date"
                 id="date"
                 min={today}
-                {...getFieldProps("date")}
                 onChange={handleDateChange}
               />
               {touched.date && errors.date ? (
@@ -139,14 +138,15 @@ function Reservations({
             </label>
             <div className="time-slots">
               {!values.date ? (
-                <p>Please select a date</p>
+                <p className="date-paragraph-text">Please select a date</p>
               ) : loading ? (
-                <p>Loading times...</p>
+                <p className="date-paragraph-text">Loading times...</p>
               ) : (
                 safeTimes.map((time) => (
                   <button
                     type="button"
                     key={time}
+                    name={time}
                     className={`time-slot ${values.time === time ? "selected" : ""}`}
                     onClick={() => {
                       setFieldValue("time", time);

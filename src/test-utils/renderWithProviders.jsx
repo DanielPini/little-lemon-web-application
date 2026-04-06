@@ -3,9 +3,7 @@ import Reservations from "../components/reservations/Reservations";
 
 const reservationProps = {
   today: "2026-04-04",
-  allSlots: [],
-  availableSlots: [],
-  values: { date: "", time: "" },
+  values: { date: "2026-04-04", time: "" },
   errors: {},
   touched: {},
   handleChange: () => {},
@@ -17,6 +15,8 @@ const reservationProps = {
   }),
   handleSubmit: () => {},
   handleDateChange: () => {},
+  times: [],
+  loading: false,
 };
 
 export const renderReservations = (uiProps = {}) => {

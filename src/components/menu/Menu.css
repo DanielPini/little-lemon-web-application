@@ -1,6 +1,11 @@
 section.menu {
   width: 100%;
 }
+section.menu h1 {
+  width: var(--DefaultWidth);
+  margin: 0 auto;
+  color: var(--primary1);
+}
 div.grid-container {
   width: var(--DefaultWidth);
   padding: 32px 0;
@@ -13,6 +18,10 @@ div.grid-container {
 }
 
 @media only screen and (max-width: 700px) {
+  section.menu h1 {
+    width: calc(100vw - 32px);
+    margin: 0 32px;
+  }
   div.grid-container {
     max-width: 100vw;
     margin: 0;

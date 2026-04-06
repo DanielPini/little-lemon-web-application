@@ -100,6 +100,7 @@ function Menu() {
   ));
   return (
     <section className="menu">
+      <h1>Menu Options</h1>
       <div className="grid-container">{menuItems}</div>
     </section>
   );
