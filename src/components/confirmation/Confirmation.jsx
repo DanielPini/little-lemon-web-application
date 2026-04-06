@@ -7,11 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 function Confirmation({ submitBooking }) {
   const [items] = useState(() => {
+    // Iterate through localStorage to save as an object
     const stored = localStorage.getItem("formValues");
     return stored ? JSON.parse(stored) : {};
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const modalRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for the modal
+  const modalRef = useRef(null); // Link to modal
 
   const navigate = useNavigate();
 

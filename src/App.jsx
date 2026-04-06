@@ -14,14 +14,17 @@ import { fetchTimes, submitBooking } from "./api";
 import * as Yup from "yup";
 
 function App() {
+  /********************************* */
+  // Logic for Reservation and API use
+  /********************************* */
   const navigate = useNavigate();
 
-  const [times, setTimes] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [times, setTimes] = useState([]); // State for times for reservation
+  const [loading, setLoading] = useState(false); // Loading state during fetch call to API
 
   const handleDateChange = async (e) => {
+    // Custom formik handle change for date value
     formik.handleChange(e);
-
     const newDate = e.target.value;
 
     if (!newDate) return;
@@ -32,8 +35,9 @@ function App() {
     setLoading(false);
   };
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().split("T")[0]; // What day is it so that date isn't bookable in retrospect
   const formik = useFormik({
+    // Formik field validation
     initialValues: {
       occasion: "",
       title: "",
@@ -48,6 +52,7 @@ function App() {
       requirements: "",
     },
     validationSchema: Yup.object({
+      // Using Yup to show user errors
       firstName: Yup.string()
         .max(15, "Must be 15 characters or less")
         .required("A valid first name is required"),
@@ -67,8 +72,9 @@ function App() {
       requirements: Yup.string(),
     }),
     onSubmit: (values, { resetForm }) => {
-      localStorage.setItem("formValues", JSON.stringify(values, null, 2));
+      localStorage.setItem("formValues", JSON.stringify(values, null, 2)); // Save values to localStorage
       resetForm({
+        // Reset form to initial state
         values: {
           occasion: "",
           title: "",
@@ -83,7 +89,7 @@ function App() {
           requirements: "",
         },
       });
-      navigate("/confirmation", { replace: true });
+      navigate("/confirmation", { replace: true }); // Navigate the user to the homepage
     },
   });
 

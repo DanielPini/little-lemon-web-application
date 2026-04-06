@@ -14,12 +14,14 @@ function Reservations({
   loading,
   handleDateChange,
 }) {
-  const safeTimes = Array.isArray(times) ? times : [];
+  const safeTimes = Array.isArray(times) ? times : []; // Make sure that the times are in the right format
   return (
     <>
       <section className="booking-form">
         <h1>Book a table</h1>
         <form onSubmit={handleSubmit} action="post">
+          {" "}
+          {/* Use handleSubmit from formik to ensure that the state is dealt with by formik */}
           <legend>Reservation form</legend>
           <label htmlFor="occasion">
             Occasion
