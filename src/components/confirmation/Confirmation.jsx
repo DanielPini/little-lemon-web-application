@@ -5,7 +5,7 @@ import "../button/Button.css";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Confirmation() {
+function Confirmation({ submitBooking }) {
   const [items] = useState(() => {
     const stored = localStorage.getItem("formValues");
     return stored ? JSON.parse(stored) : {};
@@ -113,6 +113,7 @@ function Confirmation() {
     }),
     onSubmit: () => {
       setIsModalOpen(true);
+      submitBooking();
     },
   });
 

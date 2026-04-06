@@ -123,3 +123,27 @@ textarea {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 16px;
+}
+
+.time-slot {
+  padding: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.time-slot.selected {
+  background: var(--primary1);
+  color: white;
+}
+
+.time-slot.disabled {
+  background: #eee;
+  color: #999;
+  cursor: not-allowed;
+}

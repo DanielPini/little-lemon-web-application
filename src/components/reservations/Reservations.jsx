@@ -1,69 +1,32 @@
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import "./Reservations.css";
-import { useNavigate } from "react-router-dom";
 import "../button/Button.css";
 
-function Reservations() {
-  const today = new Date().toISOString().split("T")[0];
-  const navigate = useNavigate();
-
-  const formik = useFormik({
-    initialValues: {
-      occasion: "",
-      title: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      guests: "1",
-      date: "",
-      time: "",
-      location: false,
-      requirements: "",
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string()
-        .max(15, "Must be 15 characters or less")
-        .required("A valid first name is required"),
-      lastName: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .required("A valid last name is required"),
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("An email address is required"),
-      phone: Yup.string()
-        .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits")
-        .required("A phone number is required"),
-      guests: Yup.number().min(1, "At least 1 guest"),
-      date: Yup.date().required("A date must be provided"),
-      time: Yup.string()
-        .required("A time must be provided")
-        .test("time-range", "Time must be between 14:00 and 19:00", (value) => {
-          if (!value) return false;
-          return value >= "14:00" && value <= "19:00";
-        }),
-      location: Yup.bool(),
-      requirements: Yup.string(),
-    }),
-    onSubmit: (values) => {
-      localStorage.setItem("formValues", JSON.stringify(values, null, 2));
-      navigate("/confirmation", { replace: true });
-    },
-  });
-
+function Reservations({
+  today,
+  values,
+  errors,
+  touched,
+  handleChange,
+  setFieldValue,
+  getFieldProps,
+  handleSubmit,
+  handleDateChange,
+  times,
+  loading,
+}) {
+  const safeTimes = Array.isArray(times) ? times : [];
   return (
     <>
       <section className="booking-form">
         <h1>Book a table</h1>
-        <form onSubmit={formik.handleSubmit} action="post">
+        <form onSubmit={handleSubmit} action="post">
           <legend>Reservation form</legend>
           <label htmlFor="occasion">
             Occasion
             <select
               name="occasion"
               id="occasion"
-              {...formik.getFieldProps("occasion")}
+              {...getFieldProps("occasion")}
             >
               <option disabled value="">
                 --Select an occasion--
@@ -80,11 +43,7 @@ function Reservations() {
             <legend>Your information</legend>
             <label htmlFor="title" className="title-label">
               Title
-              <select
-                name="title"
-                id="title"
-                {...formik.getFieldProps("title")}
-              >
+              <select name="title" id="title" {...getFieldProps("title")}>
                 <option disabled value="">
                   -- Select a title --
                 </option>
@@ -104,10 +63,10 @@ function Reservations() {
                 placeholder="First Name"
                 name="firstName"
                 id="firstName"
-                {...formik.getFieldProps("firstName")}
+                {...getFieldProps("firstName")}
               />
-              {formik.touched.firstName && formik.errors.firstName ? (
-                <div className="error">{formik.errors.firstName}</div>
+              {touched.firstName && errors.firstName ? (
+                <div className="error">{errors.firstName}</div>
               ) : null}
             </label>
             <label htmlFor="lastName">
@@ -117,10 +76,10 @@ function Reservations() {
                 placeholder="Last Name"
                 name="lastName"
                 id="lastName"
-                {...formik.getFieldProps("lastName")}
+                {...getFieldProps("lastName")}
               />
-              {formik.touched.lastName && formik.errors.lastName ? (
-                <div className="error">{formik.errors.lastName}</div>
+              {touched.lastName && errors.lastName ? (
+                <div className="error">{errors.lastName}</div>
               ) : null}
             </label>
             <label htmlFor="email">
@@ -128,10 +87,10 @@ function Reservations() {
               <input
                 type="email"
                 placeholder="Email"
-                {...formik.getFieldProps("email")}
+                {...getFieldProps("email")}
               />
-              {formik.touched.email && formik.errors.email ? (
-                <div className="error">{formik.errors.email}</div>
+              {touched.email && errors.email ? (
+                <div className="error">{errors.email}</div>
               ) : null}
             </label>
             <label htmlFor="phone">
@@ -141,10 +100,10 @@ function Reservations() {
                 placeholder="Phone number"
                 name="phone"
                 id="phone"
-                {...formik.getFieldProps("phone")}
+                {...getFieldProps("phone")}
               />
-              {formik.touched.phone && formik.errors.phone ? (
-                <div className="error">{formik.errors.phone}</div>
+              {touched.phone && errors.phone ? (
+                <div className="error">{errors.phone}</div>
               ) : null}
             </label>
           </fieldset>
@@ -152,11 +111,7 @@ function Reservations() {
             <legend>Booking details</legend>
             <label htmlFor="guests">
               Number of guests
-              <select
-                name="guests"
-                id="guests"
-                {...formik.getFieldProps("guests")}
-              >
+              <select name="guests" id="guests" {...getFieldProps("guests")}>
                 <option className="option" value="1">
                   1
                 </option>
@@ -165,8 +120,6 @@ function Reservations() {
                 <option value="4">4</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
               </select>
             </label>
             <br />
@@ -177,40 +130,47 @@ function Reservations() {
                 name="date"
                 id="date"
                 min={today}
-                {...formik.getFieldProps("date")}
+                {...getFieldProps("date")}
+                onChange={handleDateChange}
               />
-              {formik.touched.date && formik.errors.date ? (
-                <div className="error">{formik.errors.date}</div>
+              {touched.date && errors.date ? (
+                <div className="error">{errors.date}</div>
               ) : null}
             </label>
-            <label htmlFor="time">
-              Time<span className="required">*</span>
-              <input
-                type="time"
-                name="time"
-                id="time"
-                min="14:00"
-                max="19:00"
-                {...formik.getFieldProps("time")}
-              />
-              {formik.touched.time && formik.errors.time ? (
-                <div className="error">{formik.errors.time}</div>
-              ) : null}
-            </label>
+            <div className="time-slots">
+              {!values.date ? (
+                <p>Please select a date</p>
+              ) : loading ? (
+                <p>Loading times...</p>
+              ) : (
+                safeTimes.map((time) => (
+                  <button
+                    type="button"
+                    key={time}
+                    className={`time-slot ${values.time === time ? "selected" : ""}`}
+                    onClick={() => {
+                      setFieldValue("time", time);
+                    }}
+                  >
+                    {time}
+                  </button>
+                ))
+              )}
+            </div>
             <label htmlFor="location" className="switch">
               <input
                 type="checkbox"
                 name="location"
                 id="location"
-                {...formik.getFieldProps("location")}
+                {...getFieldProps("location")}
                 placeholder="Location"
-                checked={formik.values.location}
-                onChange={formik.handleChange}
+                checked={values.location}
+                onChange={handleChange}
                 readOnly
               />
               <span className="slider"></span>
               <span className="location-label">
-                {formik.values.location ? "Outdoors" : "Indoors"}
+                {values.location ? "Outdoors" : "Indoors"}
               </span>
             </label>
             <label htmlFor="requirements" className="text-box-label">
@@ -219,7 +179,7 @@ function Reservations() {
               <textarea
                 name="requirements"
                 id="requirements"
-                {...formik.getFieldProps("requirements")}
+                {...getFieldProps("requirements")}
               ></textarea>
             </label>
           </fieldset>
